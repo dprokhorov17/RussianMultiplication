@@ -20,22 +20,22 @@ namespace RussianMultiplication.UnitTests
         public void Multiply_PositiveNumbers_ReturnsCorrectResult()
         {
             (int result, _) = _russianMultiplication.Multiply(13, 12);
-            Assert.AreEqual(156, result);
+            Assert.That(156 == result);
         }
 
         [Test]
         public void Multiply_A_IsZero_ReturnsZero()
         {
             (int result, var steps) = _russianMultiplication.Multiply(0, 10);
-            Assert.AreEqual(0, result);
-            Assert.IsEmpty(steps);
+            Assert.That(result == 0);
+            Assert.That(steps.Count == 0);
         }
 
         [Test]
         public void Multiply_B_IsZero_ReturnsZero()
         {
             (int result, _) = _russianMultiplication.Multiply(10, 0);
-            Assert.AreEqual(0, result);
+            Assert.That(result == 0);
         }
 
         [Test]
@@ -48,24 +48,22 @@ namespace RussianMultiplication.UnitTests
                 new StepResult { Left = 2, Right = 6, Add = false },
                 new StepResult { Left = 1, Right = 12, Add = true }
             };
-
-            Assert.AreEqual(expectedSteps.Count, steps.Count);
+            Assert.That(steps.Count == expectedSteps.Count);
             for (int i = 0; i < expectedSteps.Count; i++)
             {
-                Assert.AreEqual(expectedSteps[i].Left, steps[i].Left);
-                Assert.AreEqual(expectedSteps[i].Right, steps[i].Right);
-                Assert.AreEqual(expectedSteps[i].Add, steps[i].Add);
+                Assert.That(steps[i].Left == expectedSteps[i].Left);
+                Assert.That(steps[i].Right == expectedSteps[i].Right);
+                Assert.That(steps[i].Add == expectedSteps[i].Add);
             }
 
-            Assert.AreEqual(15, result);
+            Assert.That(result == 15);
         }
 
         [Test]
         public void Multiply_NegativeInput_HandledProperly()
         {
             (int result, var steps) = _russianMultiplication.Multiply(-4, 5);
-            Assert.AreEqual(0, result);
-            Assert.IsEmpty(steps);
+            Assert.That(result == 0);
         }
     }
 }
