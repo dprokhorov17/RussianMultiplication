@@ -6,6 +6,8 @@ A WPF application demonstrating the Russian Peasant Multiplication method (also 
 
 This application implements an alternative algorithm for multiplying two numbers, which is historically significant and doesn't require multiplication tables. The algorithm only uses doubling, halving, and addition operations.
 
+![Russian Peasant Multiplication Application](Images/Screenshot_1.png)
+
 ## Features
 
 - User-friendly WPF interface
